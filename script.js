@@ -15,7 +15,13 @@ const translations = {
     "incident-label": "Describe the Incident",
     "voice-label": "Upload Voice Note (Optional)",
     "media-label": "Upload Photos or Video",
-    "submit-button": "Submit Report"
+    "submit-button": "Submit Report",
+    reportTypes:{
+      theft:"Theft"
+      vandalism:"Vandalism"
+      injury:"Injury"
+      suspicious:"Suspicious"
+}
   },
   zu: {
     title: "Iphothali Yokubika Izehlakalo",
@@ -29,7 +35,12 @@ const translations = {
     "incident-label": "Chaza Izehlakalo",
     "voice-label": "Layisha Inothi Yezwi (Ongakukhetha)",
     "media-label": "Layisha Izithombe noma Ividiyo",
-    "submit-button": "Thumela Umbiko"
+    "submit-button": "Thumela Umbiko",
+      reportTypes:{
+      theft:"Ukwebiwa"
+      vandalism:"Umonakalo"
+      injurty:"Ukulimala"
+      suspicious:"Okusolisayo"
   }
 };
 
@@ -51,7 +62,22 @@ function updateLanguage(lang) {
     }
   }
 }
+//Translate report type <select>options
+const reportTypeSelect =
+  document.getElementById("report-type");
+if(reportTypeSelect && t.reportTypes)
+{
+  Array.from(reportTypeSelect.options).for 
+    Each(option  => {
+const key = option.value; //e,g "theft"
+      if (t.reportTypes[key]{
+        option.textContent =
+          t.reportTypes[key];
+      }
+    });
+}
 
+  
 document.getElementById("language").addEventListener("change", (e) => {
   updateLanguage(e.target.value);
 });
@@ -61,4 +87,5 @@ updateLanguage("en");
 // Example form submission handler
 document.getElementById("submit-button").addEventListener("click", () => {
   alert("Form data would now be sent to the server or cloud service.");
+
 });
