@@ -39,7 +39,7 @@ const translations = {
       reportTypes:{
       theft:"Ukwebiwa"
       vandalism:"Umonakalo"
-      injurty:"Ukulimala"
+      injury:"Ukulimala"
       suspicious:"Okusolisayo"
   }
 };
@@ -62,15 +62,15 @@ function updateLanguage(lang) {
     }
   }
 }
-//Translate report type <select>options
-const reportTypeSelect =
+
+  //update report type <select> options
+ for const reportTypeSelect =
   document.getElementById("report-type");
 if(reportTypeSelect && t.reportTypes)
 {
-  Array.from(reportTypeSelect.options).for 
-    Each(option  => {
+  Array.from(reportTypeSelect.options).forEach(option  => {
 const key = option.value; //e,g "theft"
-      if (t.reportTypes[key]{
+      if (t.reportTypes[key]){
         option.textContent =
           t.reportTypes[key];
       }
@@ -89,3 +89,4 @@ document.getElementById("submit-button").addEventListener("click", () => {
   alert("Form data would now be sent to the server or cloud service.");
 
 });
+
