@@ -16,12 +16,12 @@ const translations = {
     "voice-label": "Upload Voice Note (Optional)",
     "media-label": "Upload Photos or Video",
     "submit-button": "Submit Report",
-    reportTypes:{
-      theft:"Theft"
-      vandalism:"Vandalism"
-      injury:"Injury"
-      suspicious:"Suspicious"
-}
+    reportTypes: {
+      theft: "Theft",
+      vandalism: "Vandalism",
+      injury: "Injury",
+      suspicious: "Suspicious"
+    }
   },
   zu: {
     title: "Iphothali Yokubika Izehlakalo",
@@ -36,11 +36,12 @@ const translations = {
     "voice-label": "Layisha Inothi Yezwi (Ongakukhetha)",
     "media-label": "Layisha Izithombe noma Ividiyo",
     "submit-button": "Thumela Umbiko",
-      reportTypes:{
-      theft:"Ukwebiwa"
-      vandalism:"Umonakalo"
-      injury:"Ukulimala"
-      suspicious:"Okusolisayo"
+    reportTypes: {
+      theft: "Ukwebiwa",
+      vandalism: "Umonakalo",
+      injury: "Ukulimala",
+      suspicious: "Okusolisayo"
+    }
   }
 };
 
@@ -48,9 +49,15 @@ const translations = {
 function updateLanguage(lang) {
   const t = translations[lang];
   for (const id in t) {
+    if (id === "reportTypes") continue; // Skip reportTypes for now
     const el = document.getElementById(id);
     if (el) {
-      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.tagName === "SELECT" || el.tagName === "BUTTON") {
+      if (
+        el.tagName === "INPUT" ||
+        el.tagName === "TEXTAREA" ||
+        el.tagName === "SELECT" ||
+        el.tagName === "BUTTON"
+      ) {
         if (el.tagName === "BUTTON") {
           el.textContent = t[id];
         } else {
@@ -61,31 +68,27 @@ function updateLanguage(lang) {
       }
     }
   }
-}
 
-  //update report type <select> options
- for const reportTypeSelect =
-  document.getElementById("report-type");
-if(reportTypeSelect && t.reportTypes)
-{
-  Array.from(reportTypeSelect.options).forEach(option  => {
-const key = option.value; //e,g "theft"
-      if (t.reportTypes[key]){
-        option.textContent =
-          t.reportTypes[key];
+  // Update report-type select options
+  const reportTypeSelect = document.getElementById("report-type");
+  if (reportTypeSelect && t.reportTypes) {
+    Array.from(reportTypeSelect.options).forEach((option) => {
+      const key = option.value;
+      if (t.reportTypes[key]) {
+        option.textContent = t.reportTypes[key];
       }
     });
+  }
 }
 
-  
 document.getElementById("language").addEventListener("change", (e) => {
   updateLanguage(e.target.value);
 });
 
+// Initial language
 updateLanguage("en");
 
 // Example form submission handler
 document.getElementById("submit-button").addEventListener("click", () => {
   alert("Form data would now be sent to the server or cloud service.");
-
 });
