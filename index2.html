@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stlye.css">
+        <title>Native Incident Report</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="title">Incident Reporting Portal</h1>
+    
+            <!-- Language Selector -->
+            <label id="language-label" for="language">Language/Ulimi</label>
+            <select id="language" name="language">
+                <option value="en">English</option>
+                <option value="zu">IsiZulu</option>
+            </select>
+            
+            <!-- Personal Info -->
+            <label id="name-label" for="name">Name:</label>    
+            <input type="text" id="name" name="name"> 
+            
+            <label id="surname-label" for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname"> 
+    
+            <label id="employeenumber-label" for="employeenumber">Employee Number:</label>
+            <input type="text" id="employeenumber" name="employeenumber"> 
+    
+            <!-- Date & Time -->
+            <label id="datetime-label" for="datetime">Date & Time:</label>
+            <input type="datetime-local" id="datetime" name="datetime"> 
+    
+            <!-- Site -->
+            <label id="site-label" for="site">Site:</label>
+            <select id="site" name="site">
+                <option value="Mkhukhu Estate">Mkhukhu Estate</option>
+                <option value="Zimbali Estate">Zimbali Estate</option>
+            </select>
+            
+            <!-- Report Details -->
+            <label id="report-type-label" for="report-type">Type of Report:</label>
+            <select id="report-type" name="report-type">
+                <option value="theft">Theft</option>
+                <option value="vandalism">Vandalism</option>
+                <option value="injury">Injury</option>
+                <option value="suspicious">Suspicious</option>
+            </select>
+    
+            <label id="incident-label" for="incident">Describe the Incident</label>
+            <textarea id="incident" name="incident" placeholder="Describe..." rows="4"></textarea>
+    
+            <!-- Media Uploads -->
+            <label id="voice-label" for="voice">Upload Voice Note (Optional)</label>
+            <input type="file" id="voice" name="voice" accept="audio/*">
+    
+            <label id="media-label" for="media">Upload Photos or Video</label>
+            <input type="file" id="media" name="media" accept="image/*,video/*" multiple>
+    
+            <!-- Submit -->
+            <button id="submit-button">Submit</button>
+            <script src="script.js"></script>
+        </body>
+    </html>
+        
+        
